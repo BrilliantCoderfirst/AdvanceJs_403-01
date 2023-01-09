@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advance Javascript 403-01</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        font-family: "Roboto", sans-serif;
+      }
+      .container {
+        width: 100;
+        height: 700px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .card {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 281px;
+      }
+      .heading {
+        font-size: 44px;
+        color: rgb(97 97 97);
+        text-shadow: 2px 2px 4px rgb(200 200 200);
+        width: 510px;
+        height: 71px;
+        box-shadow: 0px 2px 7px rgb(74 74 74);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-shadow: 1px 1px 2px black;
+      }
+      .key {
+        color: #5bbc7a;
+        text-shadow: 2px 2px 4px rgb(200, 200, 200);
+        font-size: 40px;
+        padding-left: 20px;
+        font-weight: 600;
+      }
+      .h1 {
+        font-size: 84px;
+        color: #5bbc7a;
+        text-align: center;
+        width: 158px;
+        height: 176px;
+        box-shadow: 0px 1px 6px rgb(183 183 183);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-shadow: 1px 1px 2px black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="card" class="card">
+        <p id="heading"></p>
+        <h1 id="h1"></h1>
+      </div>
+    </div>
+
+    <script>
+      const body = document.querySelector("body");
+
+      const heading = document.getElementById("heading");
+      heading.innerHTML = "Press any keyboard key";
+      heading.classList.add("heading");
+
+
+      body.addEventListener("keypress", (event) => {
+        const key = event.key;
+        const characterCode = event.charCode;
+        console.log(characterCode);
+        const heading = document.getElementById("heading");
+        const span = document.createElement("span");
+        span.innerHTML = key;
+        span.classList.add("key");
+        console.log(span);
+        heading.innerHTML = "You Pressed ";
+        heading.appendChild(span);
+        heading.classList.add("heading");
+        const h1 = document.getElementById("h1");
+        h1.innerHTML = characterCode;
+        h1.classList.add("h1");
+        console.log(h1);
+      });
+    </script>
+  </body>
+</html>
